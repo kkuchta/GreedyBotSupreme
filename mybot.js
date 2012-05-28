@@ -145,6 +145,8 @@ var util = {
         // Check each fruit on the board in turn.
         for( var y = 0; y < HEIGHT; y++ ){
             for( var x = 0; x < WIDTH; x++ ){
+
+                // If there's a fruit here
                 var fruit = board[x][y];
                 if( fruit > 0 ){
                     var distance = util.getEuclideanDistance( [x,y],[botX,botY] );
@@ -162,6 +164,16 @@ var util = {
         return closestFruits;
     },
 
+    /**
+     * Get the euclidean distance between two points.
+     *
+     * @param pointA [x,y]
+     * @param pountB [x,y]
+     * @return float
+     *
+     * TODO: we don't need true euclidean distance here- diffx + diffy would
+     * do just fine.
+     */
     getEuclideanDistance: function( pointA, pointB ){
         var xDistance = pointA[0] - pointB[0];
         var yDistance = pointA[1] - pointB[1];
